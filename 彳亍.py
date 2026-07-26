@@ -3,6 +3,7 @@
 #   "\t(Tap)", "\n(Enter)", "\b(退格)", "\0(空格)","\\(\)" r可以取消\的特殊性
 #   占位符:%d(十进制整数), %s(字符串), %f(浮点数), %.2f(保留两位小数)
 #   Ctrl + / = 快速注释, Ctrl + z = 撤回, Ctrl + Shift + z = 重做, Ctrl + a = 全选
+#   Ctrl + F = 查找内容
 #   Alt + Shift + Enter = 删除形参
 #   类中方法相差一行，不同用法差两行，结尾空一行
 #   多选后Tap 一键缩进 多选后Shift+Tap 一键取消缩进
@@ -448,7 +449,7 @@ class Love(object):
         if int(time_reading) >= self.time_write:
             self.time_write = int(time_reading)
         else:
-            print("八嘎,别整改老子的database!!")
+            print("FuckYou!别整改老子的database!!")
 
     def time_incarnation(self, time_had):
         if int(time_had) >= 0:
@@ -704,16 +705,16 @@ b.close()
 #  forward() 前进.简写fd()  backward() 后退.简写bk()
 #  right(x) 右转x角度,顺时针  left(x) 左转,逆时针
 #  setheading(angle) 改变当前朝向,绝对角度,0右90上,别名seth()
-#  speed(0~10) 画笔移动速度,大==快
-#  pendown() 放下画笔(画),别名pu()up()  penup() 提起画笔(不画),别名pd()down()
+#  speed(0~10) 画笔移动速度,大==快,0例外，无动画(殆？)
+#  pendown() 放下画笔(画),别名pd()down()  penup() 提起画笔(不画),别名pu()up()
 #  goto(x, y) 画笔移动到绝对坐标(x, y),默认(0, 0),画笔未提起会画线
 #  setx(x) 修改画笔x坐标,y不变,画笔未提起会画线  sety(y)
 #  home() 画笔移至原点,朝右,画笔未提起会画线
 #  pensize(num) 设置画笔粗细 别名width()
 #  pencolor() 设置画笔颜色(word)or((r红, g绿, b蓝))0~1
-#  color(画笔, 填充) 设置画笔颜色or填充颜色
-#  begin_fill() 开始填充
-#  end_fill() 结束填充
+#  bgcolor() 设置画布颜色  blueviolet 紫罗兰色(殆？) violet
+#  color(画笔, 填充) 设置画笔颜色or填充颜色  fillcolor()只填充  pencolor()只画笔
+#  begin_fill() 开始填充  end_fill() 结束填充
 #  filling() 返回填充状态TrueFalse
 #  clear() 清空当前窗口,但不改变画笔位置
 #  reset() 彻底清空
@@ -726,6 +727,15 @@ b.close()
 #  circle(radius, steps=n) 绘制一个半径为r的圆的内切n边形(不显示圆)
 #  dot(size, color) 绘制一个直径size,color色的圆点
 #  undo() 撤销最后一步
+#  shape("name") set画笔形状 arrow箭头 turtle海龟 circle圆 square方块 triangle三角 classic铅笔 blank空白
+#  tracer(False)  不显示绘制过程
+#  bye() 关闭窗口，退出程序
+"""
+保存生成的Turtle图,eps可用ps打开
+from PIL import Image
+getcanvas().postscript(file="效果图.eps")
+img = Image.open("效果图.eps")
+"""
 """
 from turtle import *
 
