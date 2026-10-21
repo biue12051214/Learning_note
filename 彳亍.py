@@ -808,3 +808,5 @@ print(a)
 a = lcut_for_search("我永远喜欢世界第一可爱,殿下来殿下!")
 print(a)
 """
+
+print("end")
